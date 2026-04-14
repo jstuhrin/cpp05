@@ -3,54 +3,27 @@
 
 int main()
 {
-  try
-  {
-    Bureaucrat one("one", 42);
-    std::cout << one;
-  }
-  catch (const Bureaucrat::GradeException& e)
-  {
-    std::cerr << "caught exception: " << e.what() << "\n";
-  }
+  Bureaucrat one("one", 42);
+  std::cout << one;
 
   try
   {
-    Bureaucrat two("two", 1);
+    Bureaucrat two("two", -1);
     std::cout << two;
   }
-  catch (const Bureaucrat::GradeException& e)
+  catch (const Bureaucrat::GradeTooHighException)
   {
-    std::cerr << "caught exception: " << e.what() << "\n";
+    std::cout << "caught exception\n";
   }
 
   try
   {
-    Bureaucrat three("three", 150);
+    Bureaucrat three("three", 167);
     std::cout << three;
   }
-  catch (const Bureaucrat::GradeException& e)
+  catch (const Bureaucrat::GradeTooLowException)
   {
-    std::cerr << "caught exception: " << e.what() << "\n";
-  }
-
-  try
-  {
-    Bureaucrat four("four", 0);
-    std::cout << four;
-  }
-  catch (const Bureaucrat::GradeException& e)
-  {
-    std::cerr << "caught exception: " << e.what() << "\n";
-  }
-
-  try
-  {
-    Bureaucrat five("five", 151);
-    std::cout << five;
-  }
-  catch (const Bureaucrat::GradeException& e)
-  {
-    std::cerr << "caught exception: " << e.what() << "\n";
+    std::cout << "caught exception\n";
   }
   return 0;
 }
