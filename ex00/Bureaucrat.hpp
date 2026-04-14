@@ -25,7 +25,6 @@ public:
   class GradeTooHighException : public std::exception
   {
   public:
-    // GradeTooHighException(const std::string& message) : message(message) {};
     virtual const char* what() const throw()
     {
       return message.c_str();
@@ -37,7 +36,6 @@ public:
   class GradeTooLowException : public std::exception
   {
   public:
-    // GradeTooLowException(const std::string& message) : message(message) {};
     virtual const char* what() const throw()
     {
       return message.c_str();
