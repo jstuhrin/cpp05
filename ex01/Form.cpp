@@ -55,7 +55,7 @@ int Form::getRequiredToExecute() const
 
 void Form::beSigned(const Bureaucrat& bureaucrat) throw(Form::GradeTooLowException)
 {
-  if (bureaucrat.grade > requiredToSign)
+  if (bureaucrat.getGrade() > requiredToSign)
   {
     throw Form::GradeTooLowException();
   }

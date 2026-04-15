@@ -53,7 +53,7 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) throw(AForm::GradeTooLowExcep
   isSigned = true;
 }
 
-void AForm::checkExecutable(const Bureaucrat& executor) const
+void AForm::checkExecutable(const Bureaucrat& executor) const throw(AForm::GradeTooLowException, AForm::NotSignedException)
 {
   if (!isSigned)
   {

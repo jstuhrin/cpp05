@@ -57,6 +57,6 @@ void Bureaucrat::decrementGrade()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
-  os << "Bureaucrat name: " << bureaucrat.name << "\nBureaucrat grade: " << bureaucrat.grade << "\n";
+  os << "Bureaucrat name: " << bureaucrat.getName() << "\nBureaucrat grade: " << bureaucrat.getGrade() << "\n";
   return os;
 }
