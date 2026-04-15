@@ -50,6 +50,6 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
       return (this->*functionPointers[i % 3])(target);
     }
   }
-  std::cerr << "formName does not exist - no form created\n";
+  std::cerr << target << " does not exist - no form created\n";
   return NULL;
 }

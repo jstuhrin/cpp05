@@ -27,5 +27,16 @@ int main()
       arthur.executeForm(*ppf);
     }
   }
+  {
+    Intern someRandomIntern;
+    AForm* nothing;
+    nothing = someRandomIntern.makeForm("nothing", "Bender");
+    Bureaucrat arthur("arthur", 1);
+    if (nothing != NULL)
+    {
+      arthur.signForm(*nothing);
+      arthur.executeForm(*nothing);
+    }
+  }
   return 0;
 }
