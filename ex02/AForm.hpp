@@ -11,19 +11,6 @@ class Bureaucrat;
 class AForm
 {
   public:
-    AForm();
-    AForm(std::string name, int requiredToSign, int requiredToExecute);
-    AForm(const AForm& other);
-    virtual ~AForm();
-
-    std::string getName() const;
-    bool getIsSigned() const;
-    int getRequiredToSign() const;
-    int getRequiredToExecute() const;
-
-    void beSigned(const Bureaucrat& bureaucrat) throw(AForm::GradeTooLowException);
-    virtual void execute(const Bureaucrat& executor) const = 0;
-
     class GradeTooLowException : public std::exception
     {
       public:
@@ -41,6 +28,19 @@ class AForm
           return "grade is too high!";
         }
     };
+
+    AForm();
+    AForm(std::string name, int requiredToSign, int requiredToExecute);
+    AForm(const AForm& other);
+    virtual ~AForm();
+
+    std::string getName() const;
+    bool getIsSigned() const;
+    int getRequiredToSign() const;
+    int getRequiredToExecute() const;
+
+    void beSigned(const Bureaucrat& bureaucrat) throw(AForm::GradeTooLowException);
+    virtual void execute(const Bureaucrat& executor) const = 0;
 
   protected:
     const std::string name;

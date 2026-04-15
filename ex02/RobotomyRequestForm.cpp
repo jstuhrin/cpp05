@@ -6,7 +6,7 @@ RobotomyRequestForm::RobotomyRequestForm()
   , target("default")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, int requiredToSign, int requiredToExecute)
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
   : AForm("RobotomyRequestForm", 72, 45)
   , target(target)
 {}
@@ -18,7 +18,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(const Bureaucrat& executor)
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
   // todo: check if is signed
   if (executor.getGrade() > requiredToExecute)

@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor)
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
   // todo: check if is signed
   if (executor.getGrade() > requiredToExecute)
