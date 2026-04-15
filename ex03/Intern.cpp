@@ -45,7 +45,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
                                                                &Intern::makeShrubberyCreationForm};
   for (int i = 0; i < 9; ++i)
   {
-    if (formName == formNames[i % 3])
+    if (formName == formNames[i])
     {
       return (this->*functionPointers[i % 3])(target);
     }

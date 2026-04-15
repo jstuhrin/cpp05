@@ -4,50 +4,28 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
   {
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     Bureaucrat arthur("arthur", 1);
-    std::cout << arthur;
-    PresidentialPardonForm presidentialPardonForm("jan");
-    arthur.signForm(presidentialPardonForm);
-    arthur.executeForm(presidentialPardonForm);
+    arthur.signForm(*rrf);
+    arthur.executeForm(*rrf);
   }
   {
-    Bureaucrat arthur("arthur", 150);
-    std::cout << arthur;
-    PresidentialPardonForm presidentialPardonForm("jan");
-    arthur.signForm(presidentialPardonForm);
-    arthur.executeForm(presidentialPardonForm);
-  }
-  {
+    Intern someRandomIntern;
+    AForm* ppf;
+    ppf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
     Bureaucrat arthur("arthur", 1);
-    std::cout << arthur;
-    RobotomyRequestForm robotomyRequestForm("jan");
-    arthur.signForm(robotomyRequestForm);
-    arthur.executeForm(robotomyRequestForm);
-  }
-  {
-    Bureaucrat arthur("arthur", 150);
-    std::cout << arthur;
-    RobotomyRequestForm robotomyRequestForm("jan");
-    arthur.signForm(robotomyRequestForm);
-    arthur.executeForm(robotomyRequestForm);
-  }
-  {
-    Bureaucrat arthur("arthur", 42);
-    std::cout << arthur;
-    ShrubberyCreationForm shrubberyCreationForm("home");
-    arthur.signForm(shrubberyCreationForm);
-    arthur.executeForm(shrubberyCreationForm);
-  }
-  {
-    Bureaucrat arthur("arthur", 150);
-    std::cout << arthur;
-    ShrubberyCreationForm shrubberyCreationForm("home");
-    arthur.signForm(shrubberyCreationForm);
-    arthur.executeForm(shrubberyCreationForm);
+    if (ppf != NULL)
+    {
+      arthur.signForm(*ppf);
+      arthur.executeForm(*ppf);
+    }
   }
   return 0;
 }
