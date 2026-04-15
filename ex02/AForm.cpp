@@ -53,6 +53,18 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) throw(AForm::GradeTooLowExcep
   isSigned = true;
 }
 
+void AForm::checkExecutable(const Bureaucrat& executor) const
+{
+  if (!isSigned)
+  {
+    throw AForm::NotSignedException();
+  }
+  if (executor.getGrade() > requiredToExecute)
+  {
+    throw AForm::GradeTooLowException();
+  }
+}
+
 std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
   os << "AForm: name: " << form.getName() << "\nAForm: is signed: " << (form.getIsSigned() == true ? "true" : "false")

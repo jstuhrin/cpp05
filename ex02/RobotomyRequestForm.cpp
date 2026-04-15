@@ -20,11 +20,6 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
-  // todo: check if is signed
-  if (executor.getGrade() > requiredToExecute)
-  {
-    throw AForm::GradeTooLowException();
-  }
   // todo: 50%
   std::cout << executor.getName() << " performed a robotomy on " << target << "\n"; 
 }

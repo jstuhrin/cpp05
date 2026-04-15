@@ -20,11 +20,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-  // todo: check that form is signed
-  if (executor.getGrade() > requiredToExecute)
-  {
-    throw AForm::GradeTooLowException();
-  }
   std::cout << executor.getName() << " excuted form " << name << "\n";
   //  todo: create file and write to file
   std::cout << "\n"

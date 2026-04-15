@@ -11,6 +11,24 @@ class AForm;
 class Bureaucrat
 {
 public:
+  class GradeTooHighException : public std::exception
+  {
+    public:
+      const char* what() const throw()
+      {
+        return "grade is too high!";
+      }
+  };
+
+  class GradeTooLowException : public std::exception
+  {
+    public:
+      const char* what() const throw()
+      {
+        return "grade is too low!";
+      }
+  };
+
   Bureaucrat();
   Bureaucrat(const std::string& name, int grade);
   Bureaucrat(const Bureaucrat& other);
@@ -23,24 +41,6 @@ public:
 
   void signForm(AForm& form) const;
   void executeForm(const AForm& form) const;
-
-  class GradeTooHighException : public std::exception
-  {
-  public:
-    const char* what() const throw()
-    {
-      return "grade is too high!";
-    }
-  };
-
-  class GradeTooLowException : public std::exception
-  {
-  public:
-    const char* what() const throw()
-    {
-      return "grade is too low!";
-    }
-  };
 
 private:
   const std::string name;

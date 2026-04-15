@@ -29,6 +29,15 @@ class AForm
         }
     };
 
+    class NotSignedException : public std::exception
+    {
+      public:
+        virtual const char* what() const throw()
+        {
+          return "form is not signed!";
+        }
+    };
+
     AForm();
     AForm(std::string name, int requiredToSign, int requiredToExecute);
     AForm(const AForm& other);
@@ -40,6 +49,7 @@ class AForm
     int getRequiredToExecute() const;
 
     void beSigned(const Bureaucrat& bureaucrat) throw(AForm::GradeTooLowException);
+    void checkExecutable(const Bureaucrat& executor) const throw(AForm::GradeTooLowException, AForm::NotSignedException);
     virtual void execute(const Bureaucrat& executor) const = 0;
 
   protected:
