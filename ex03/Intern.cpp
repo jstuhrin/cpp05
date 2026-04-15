@@ -5,10 +5,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-std::string formNames[9] = {"presidential pardon", "robotomy request", "shrubbery creation",
-                                "presidential pardon form", "robotomy request form", "shrubbery creation form",
-                                "PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
-
 Intern::Intern() {}
 
 Intern::Intern(const Intern& other)
@@ -41,13 +37,17 @@ AForm* Intern::makeShrubberyCreationForm(const std::string& target)
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
-  AForm* (*functionPointers[3])(const std::string&) = {Intern::makePresidentialPardonForm, Intern::makeRobotomyRequestForm, Intern::makeShrubberyCreationForm};
-
-  for (int i = 0; i < formNames.size(); ++i)
+  std::string formNames[9] = {"presidential pardon", "robotomy request", "shrubbery creation",
+                              "presidential pardon form", "robotomy request form", "shrubbery creation form",
+                              "PresidentialPardonForm", "RobotomyRequestForm", "ShrubberyCreationForm"};
+  AForm* (Intern::*functionPointers[3])(const std::string&) = {&Intern::makePresidentialPardonForm,
+                                                               &Intern::makeRobotomyRequestForm,
+                                                               &Intern::makeShrubberyCreationForm};
+  for (int i = 0; i < 9; ++i)
   {
     if (formName == formNames[i % 3])
     {
-      return *Intern::functionPointers[i % 3](target);
+      return (this->*functionPointers[i % 3])(target);
     }
   }
   std::cerr << "formName does not exist - no form created\n";

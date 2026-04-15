@@ -16,9 +16,6 @@ class Intern
     AForm* makePresidentialPardonForm(const std::string& target);
     AForm* makeRobotomyRequestForm(const std::string& target);
     AForm* makeShrubberyCreationForm(const std::string& target);
-
-    static std::string formNames[9];
-    AForm* (*functionPointers[3])(const std::string&);
 };
 
 #endif
