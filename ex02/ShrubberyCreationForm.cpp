@@ -29,8 +29,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     std::cerr << "could not open file " << fileName << "\n";
     return;
   }
-  file << "\n"
-          "        tr\n"
+  file << "        tr\n"
           "       tree\n"
           "      treeee\n"
           "     treeeeee\n"
@@ -41,6 +40,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
           "treeeeeeeeeeeeeeee\n"
           "       tree\n"
           "       tree\n"
-          "       tree\n\n";
+          "       tree";
   std::cout << executor.getName() << " excuted form " << name << "\n";
 }
