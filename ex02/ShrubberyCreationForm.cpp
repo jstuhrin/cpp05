@@ -1,4 +1,6 @@
 
+#include <fstream>
+
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -20,19 +22,25 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+  std::string fileName = target + "_shrubbery";
+  std::ofstream file(fileName.c_str());
+  if (!file.is_open())
+  {
+    std::cerr << "could not open file " << fileName << "\n";
+    return;
+  }
+  file << "\n"
+          "        tr\n"
+          "       tree\n"
+          "      treeee\n"
+          "     treeeeee\n"
+          "    treeeeeeee\n"
+          "   treeeeeeeeee\n"
+          "  treeeeeeeeeeee\n"
+          " treeeeeeeeeeeeee\n"
+          "treeeeeeeeeeeeeeee\n"
+          "       tree\n"
+          "       tree\n"
+          "       tree\n\n";
   std::cout << executor.getName() << " excuted form " << name << "\n";
-  //  todo: create file and write to file
-  std::cout << "\n"
-               "        tr\n"
-               "       tree\n"
-               "      treeee\n"
-               "     treeeeee\n"
-               "    treeeeeeee\n"
-               "   treeeeeeeeee\n"
-               "  treeeeeeeeeeee\n"
-               " treeeeeeeeeeeeee\n"
-               "treeeeeeeeeeeeeeee\n"
-               "       tree\n"
-               "       tree\n"
-               "       tree\n\n";
 }
