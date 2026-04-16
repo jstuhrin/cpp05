@@ -13,8 +13,12 @@ int main()
     AForm* rrf;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     Bureaucrat arthur("arthur", 1);
-    arthur.signForm(*rrf);
-    arthur.executeForm(*rrf);
+    if (rrf != NULL)
+    {
+      arthur.signForm(*rrf);
+      arthur.executeForm(*rrf);
+      delete rrf;
+    }
   }
   {
     Intern someRandomIntern;
@@ -25,17 +29,31 @@ int main()
     {
       arthur.signForm(*ppf);
       arthur.executeForm(*ppf);
+      delete ppf;
     }
   }
   {
     Intern someRandomIntern;
-    AForm* nothing;
-    nothing = someRandomIntern.makeForm("nothing", "Bender");
+    AForm* scf;
+    scf = someRandomIntern.makeForm("shrubbery creation form", "marine terrein");
     Bureaucrat arthur("arthur", 1);
-    if (nothing != NULL)
+    if (scf != NULL)
     {
-      arthur.signForm(*nothing);
-      arthur.executeForm(*nothing);
+      arthur.signForm(*scf);
+      arthur.executeForm(*scf);
+      delete scf;
+    }
+  }
+  {
+    Intern someRandomIntern;
+    AForm* noForm;
+    noForm = someRandomIntern.makeForm("noForm", "Bender");
+    Bureaucrat arthur("arthur", 1);
+    if (noForm != NULL)
+    {
+      arthur.signForm(*noForm);
+      arthur.executeForm(*noForm);
+      delete noForm;
     }
   }
   return 0;
