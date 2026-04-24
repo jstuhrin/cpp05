@@ -29,6 +29,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     std::cerr << "could not open file " << fileName << "\n";
     return;
   }
+  std::cout << executor.getName() << " planted a tree\n";
   file << "        tr\n"
           "       tree\n"
           "      treeee\n"

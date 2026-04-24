@@ -20,5 +20,5 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
-  std::cout << "Galactic news! " << target << " has been pardoned by Zaphod Beeblebrox!\n";
+  std::cout << "Galactic news! " << executor.getName() << " executed a presidential pardon form and " << target << " has been pardoned by Zaphod Beeblebrox!\n";
 }

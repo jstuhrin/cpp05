@@ -13,7 +13,7 @@ OBJS = $(SRCS:.cpp=.o)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CXX) $^ -o $@
+	$(CXX) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 
