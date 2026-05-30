@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
-  : name("this class should probably not have a default constructor")
+  : name("default bureaucrat")
   , grade(42)
 {}
 

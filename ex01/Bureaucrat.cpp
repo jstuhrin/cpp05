@@ -3,7 +3,7 @@
 #include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
-  : name("this class should probably not have a default constructor")
+  : name("default bureaucrat")
   , grade(42)
 {}
 
@@ -63,7 +63,7 @@ void Bureaucrat::signForm(Form& form) const
     form.beSigned(*this);
     std::cout << name << " signed " << form.getName() << "\n";
   }
-  catch (const Form::GradeTooLowException)
+  catch (const Form::GradeTooLowException&)
   {
     std::cout << name << " couldn't sign " << form.getName() << " because " << name << "'s grade is too low.\n";
   }
