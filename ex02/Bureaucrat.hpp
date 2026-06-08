@@ -46,7 +46,7 @@ private:
   const std::string name;
   int grade;
 
-  Bureaucrat& operator=(const Bureaucrat& other); // declared private, not defined
+  Bureaucrat& operator=(const Bureaucrat& other); // declared private, not defined, since it is impossible to implement a copy assignment operator for a class with a const member attribute
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
