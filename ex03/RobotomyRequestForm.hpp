@@ -15,9 +15,10 @@ class RobotomyRequestForm : public AForm
     ~RobotomyRequestForm();
 
     void execute(const Bureaucrat& bureaucrat) const;
+
   private:
     const std::string target;
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& other); // declared private, and not implemented
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 };
 
 #endif

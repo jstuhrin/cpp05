@@ -15,9 +15,10 @@ class ShrubberyCreationForm : public AForm
     ~ShrubberyCreationForm();
 
     void execute(const Bureaucrat& bureaucrat) const;
+
   private:
     const std::string target;
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other); // defined privately, and not implemented
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 };
 
 #endif
