@@ -47,7 +47,7 @@ private:
   const int requiredToSign;
   const int requiredToExecute;
 
-  Form& operator=(const Form& other); // defined privately, and not implemented
+  Form& operator=(const Form& other); // declared privately and not implemented, since it is impossible to implement a copy assignment operator for a class with const member attributes
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);
